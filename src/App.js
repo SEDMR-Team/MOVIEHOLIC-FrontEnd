@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { withAuth0 } from "@auth0/auth0-react";
 import './App.css';
@@ -6,6 +5,7 @@ import Header from './components/Header.js';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
+import NavBar from './components/NavBar';
 
 
 class App extends React.Component {
@@ -14,6 +14,7 @@ class App extends React.Component {
     this.state = {
     movies: []
     }
+    console.log("tessssssssssssssssssst");
   }
 
   componentDidMount = () => {
@@ -24,8 +25,7 @@ class App extends React.Component {
    
         });
 
-      })
-      .catch(err => console.log(err));
+      }).catch(err => console.log(err));
   }
 
   render() {
