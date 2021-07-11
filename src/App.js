@@ -22,7 +22,17 @@ class App extends React.Component {
 
     }
     console.log("tessssssssssssssssssst");
-  }
+  };
+
+  handleOnChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  };
+
+
+
+
 
 componentDidMount = () => {
     axios.get('http://localhost:5001/movie')
@@ -73,7 +83,13 @@ componentDidMount = () => {
     return (
       <>
         <Header isAuthenticated={isAuthenticated} />
-        <Main  movies={this.state.movies} />
+        <Main  movies={this.state.movies} 
+        
+        handleOnChange={this.handleOnChange}
+          handleSubmit={this.getMoviesData}
+          with_genres={this.state.with_genres}
+          primary_release_year={this.state.primary_release_year}
+        />
 
         <Footer />
       </>

@@ -27,38 +27,7 @@ export class NavBar extends Component {
                     </Col>
                 </div>
 
-
-                <Form.Group>
-
-                    <br />
-                    <Col>
-                    <Form.Control as="select">
-                        <option>Search By Genres</option>
-                        <option>Action</option>
-                        <option>Comedy</option>
-                        <option >Drama</option>
-                        <option>Fantasy</option>
-                        <option>Horror</option>
-                        <option>Mystery</option>
-                        <option>Romance</option>
-                        <option>Thriller</option>
-                    </Form.Control>
-                    <br />
-
-                    <Form.Group controlId="formGridAddress1">
-                        <Form.Label>Search By Year</Form.Label>
-                        <Form.Control placeholder="2016" />
-                    </Form.Group>
-                    <br />
-                    <Button variant="primary" type="submit">
-                        CLICK TO SEARCH
-                    </Button>
-                    </Col>
-                 
-                    <br />
-
-                </Form.Group>
-                
+               
             </>
         )
     }
