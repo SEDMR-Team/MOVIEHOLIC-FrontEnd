@@ -1,9 +1,13 @@
 
 import React from "react";
+import './styleFooter.css';
+
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import AboutUs from "./AboutUs";
 
 const Footer = () => {
   return (
+    <>
     <MDBFooter color="black" className="font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
@@ -20,7 +24,7 @@ const Footer = () => {
                 <a href="#!">Movies Comparison</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">About us</a>
+                <a href="About US">About us</a>
               </li>
               <li className="list-unstyled">
                 <a href="#!">Contact Us</a>
@@ -38,6 +42,9 @@ const Footer = () => {
         </MDBContainer>
       </div>
     </MDBFooter>
+    <AboutUs/>
+   </>
+    
   );
 }
 
