@@ -2,14 +2,15 @@
 import React from 'react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
+import NavBar from './NavBar';
 
 class Header extends React.Component {
   render() {
     return (
       <>
-        <h1>This is Header</h1>
+        <NavBar />
         <LoginButton />
-        {!this.props.isAuthenticated ? '': <LogoutButton />}
+        {!this.props.isAuthenticated ? '' : <LogoutButton />}
       </>
     )
   }

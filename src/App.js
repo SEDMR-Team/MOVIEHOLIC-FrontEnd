@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { withAuth0 } from "@auth0/auth0-react";
 import './App.css';
@@ -16,21 +15,58 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    movies: []
+    movies: [],
+    with_genres: '',
+    primary_release_year: '',
+
+
     }
+    console.log("tessssssssssssssssssst");
   }
 
-  componentDidMount = () => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/movie`)
+componentDidMount = () => {
+    axios.get('http://localhost:5001/movie')
       .then(res => {
         this.setState({
-         movies:res.results
-   
+         movies:res.data
+
         });
+       
 
       })
       .catch(err => console.log(err));
-  }
+  };
+
+  getMoviesData = async (e) => {
+    e.preventDefault();
+    try {
+    const moviesData = await axios.get('http://localhost:5001/search',
+      {params: {
+        primary_release_year: this.primary_release_year,
+        with_genres: this.state.with_genres
+      }});
+      this.setState({
+        movies:moviesData.data,
+        primary_release_year: '',
+        with_genres: ''
+      }); 
+    } catch (err) {
+      this.setState({error: `${err.message}`});
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   render() {
     const { isAuthenticated } = this.props.auth0;
@@ -38,6 +74,7 @@ class App extends React.Component {
       <>
         <Header isAuthenticated={isAuthenticated} />
         <Main  movies={this.state.movies} />
+
         <Footer />
       </>
     )
