@@ -18,7 +18,7 @@ class App extends React.Component {
     movies: [],
     with_genres: '',
     primary_release_year: '',
-
+    // movies: {}
 
     }
     console.log("tessssssssssssssssssst");
@@ -31,6 +31,12 @@ class App extends React.Component {
   };
 
 
+  handleShowcard = async (id) => {
+    const res = await axios.get(`http://localhost:5001/movies/${id}`);
+    this.setState({
+    movies: res.data
+    });
+  }
 
 
 
@@ -66,29 +72,18 @@ componentDidMount = () => {
   };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   render() {
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
         <Header isAuthenticated={isAuthenticated} />
-        <Main  movies={this.state.movies} 
-        
+        <Main  
+        movies={this.state.movies} 
         handleOnChange={this.handleOnChange}
           handleSubmit={this.getMoviesData}
           with_genres={this.state.with_genres}
           primary_release_year={this.state.primary_release_year}
+          handleShowcard={this.handleShowcard}
         />
 
         <Footer />
