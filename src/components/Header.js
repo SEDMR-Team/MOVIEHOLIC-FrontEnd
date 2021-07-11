@@ -3,6 +3,7 @@ import React from 'react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import NavBar from './NavBar';
+import SlideShow from './SlideShow';
 
 class Header extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class Header extends React.Component {
         <NavBar />
         <LoginButton />
         {!this.props.isAuthenticated ? '' : <LogoutButton />}
+        <SlideShow/>
       </>
     )
   }
