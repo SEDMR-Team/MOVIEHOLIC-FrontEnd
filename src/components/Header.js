@@ -1,6 +1,5 @@
 
 import React from 'react';
-import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import NavBar from './NavBar';
 import SlideShow from './SlideShow';
@@ -9,8 +8,7 @@ class Header extends React.Component {
   render() {
     return (
       <>
-        <NavBar />
-        <LoginButton />
+        <NavBar />       
         {!this.props.isAuthenticated ? '' : <LogoutButton />}
         <SlideShow/>
       </>
