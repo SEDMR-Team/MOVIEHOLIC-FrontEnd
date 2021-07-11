@@ -1,3 +1,6 @@
+
+
+
 import React from 'react';
 import Movies from './Movies.js';
 import { Container, CardColumns } from 'react-bootstrap';
@@ -7,7 +10,7 @@ class MoviesColumns  extends React.Component {
     return (
       <Container>
         <CardColumns>
-          {this.props.movies.map((movies, i) => <Movies key={i} movies={movies} />)}
+          {this.props.movies.map((movies, i) => <Movies key={i} movies={movies} handleShowcard={this.props.handleShowcard} />)}
         </CardColumns>
       </Container>
     )
