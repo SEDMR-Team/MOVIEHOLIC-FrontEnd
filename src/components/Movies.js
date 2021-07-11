@@ -6,13 +6,11 @@ class Movies extends React.Component {
     const movies = this.props.movies;
     return (
       <Card>
-        <Card.Img variant="top" src={movies.backdrop_path} />
+        <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w300/${movies.poster_path}`} />
         <Card.Body>
           <Card.Title>{movies.original_title}</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in to
-            additional content. This content is a little bit longer.
-            </Card.Text>
+          <Card.Text>{movies.overview}</Card.Text>
+          <Card.Text>{`rating: ${movies.vote_average}`}</Card.Text>
         </Card.Body>
       </Card>
     )
