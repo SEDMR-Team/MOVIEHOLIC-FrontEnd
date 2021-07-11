@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .App {
   text-align: center;
 }
@@ -37,3 +40,26 @@
   }
 }
 
+.mr-auto{
+
+  margin-left: 400px;
+}
+
+#LoginButton{
+ float: right;
+ margin-right: 20px;
+ margin-top: 0px;
+}
+
+
+.LogoutButton{
+ margin-right: 500px;
+ 
+}
+
+#navWords{
+  font-family: 'Open Sans', sans-serif;
+  size: 20px;
+  font-weight: 400;
+
+}

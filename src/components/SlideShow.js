@@ -36,9 +36,7 @@ export class SlideShow extends Component {
                         <img
                             className="d-block w-100"
                             src={"./images/2.jpg"}
-                            alt="Third slide"
-                        />
-
+                            alt="Third slide"/>
                         <Carousel.Caption>
                             <h3>Third slide label</h3>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
