@@ -6,9 +6,10 @@ import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
-import'bootstrap-css-only/css/bootstrap.min.css';
- import'mdbreact/dist/css/mdb.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+// import NavBar from './components/NavBar';
 
 
 class App extends React.Component {
@@ -21,13 +22,23 @@ class App extends React.Component {
     // movies: {}
 
     }
-    console.log("tessssssssssssssssssst");
   };
+
+  // searchMovie = e => {
+  //   this.setState({
+  //    [e.target.name]: e.target.value
+
+  //   })
+  //   console.log('movie name ', e.target.name)
+  //   console.log('movie value ', e.target.value)
+  // }
 
   handleOnChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log('value', e.target.value)
+    console.log('name value', e.target.name)
   };
 
 
@@ -44,11 +55,9 @@ componentDidMount = () => {
     axios.get('http://localhost:5001/movie')
       .then(res => {
         this.setState({
-         movies:res.data
+          movies: res.data
 
         });
-       
-
       })
       .catch(err => console.log(err));
   };
@@ -56,23 +65,25 @@ componentDidMount = () => {
   getMoviesData = async (e) => {
     e.preventDefault();
     try {
-    const moviesData = await axios.get('http://localhost:5001/search',
-      {params: {
-        primary_release_year: this.primary_release_year,
-        with_genres: this.state.with_genres
-      }});
+      let moviesData = await axios.get('http://localhost:5001/search',
+        {
+          params: {
+            primary_release_year: this.primary_release_year,
+            with_genres: this.state.with_genres
+          }
+        });
       this.setState({
-        movies:moviesData.data,
+        movies: moviesData.data,
         primary_release_year: '',
         with_genres: ''
-      }); 
+      });
     } catch (err) {
-      this.setState({error: `${err.message}`});
+      this.setState({ error: `${err.message}` });
     }
   };
 
-
   render() {
+    // console.log('movies', this.moviesData)
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
@@ -95,28 +106,6 @@ componentDidMount = () => {
 export default withAuth0(App)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { Component } from 'react'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // // import axios from 'axios';
@@ -137,7 +126,7 @@ export default withAuth0(App)
 
 //         <Router>
 //           {/* <Header /> */}
-         
+
 //           <Switch>
 //             <Route exact path="/">
 //               <Home />
@@ -147,7 +136,7 @@ export default withAuth0(App)
 //             <Profile />
 //             </Route>
 //           </Switch>
-         
+
 //           {/* <Footer /> */}
 
 //         </Router>

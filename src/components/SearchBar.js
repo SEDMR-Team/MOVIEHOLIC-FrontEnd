@@ -54,27 +54,26 @@ class SearchBar extends React.Component {
           <Form onSubmit={this.props.handleSubmit}>
             <Row className="justify-content-center">
               <Col>
-                <Form.Control name="primary_release_year" placeholder="Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year}/>
+                <Form.Control name="primary_release_year" placeholder="Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year} />
               </Col>
               <Col>
-              <Form.Control  name="with_genres"    as="select"  onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
-    <option >Search By Genres</option>
-    <option value='28' >Action</option>
-    <option value='35'>Comedy</option>
-    <option value='12'>Adventure</option>
-     <option value='16'>Animation</option>
-   <option value='80'>Crime</option>
-     <option value='99'>Documentary</option>
-    <option value='10749'>Romance</option>
-     <option value='18'>Drama</option>
-<option value='10751'>Family</option>
-<option value='14'>Fantasy</option>
-<option value='36'>Horror</option>
-<option value='36'>History</option>
-<option value='27'>Horror</option>
-<option value='10402'>Music</option>
- </Form.Control>
-              
+                <Form.Control name="with_genres" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
+                  <option >Search By Genres</option>
+                  <option value='28' >Action</option>
+                  <option value='35'>Comedy</option>
+                  <option value='12'>Adventure</option>
+                  <option value='16'>Animation</option>
+                  <option value='80'>Crime</option>
+                  <option value='99'>Documentary</option>
+                  <option value='10749'>Romance</option>
+                  <option value='18'>Drama</option>
+                  <option value='10751'>Family</option>
+                  <option value='14'>Fantasy</option>
+                  <option value='36'>History</option>
+                  <option value='27'>Horror</option>
+                  <option value='10402'>Music</option>
+                </Form.Control>
+
               </Col>
               <Col>
                 <Button variant="primary" type="submit">GO</Button>

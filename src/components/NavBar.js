@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Navbar, Button, FormControl, Form, Nav, NavDropdown, Col , Row} from 'react-bootstrap';
+import { Navbar,  Nav , Col} from 'react-bootstrap';
+import LoginButton from './LoginButton';
 
 
 export class NavBar extends Component {
@@ -10,29 +11,19 @@ export class NavBar extends Component {
                 
                     <Col>
                     <Navbar bg="light" expand="lg">
+                    <LoginButton />
                         <Navbar.Brand href="#home">MOVIEHOLIC</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <Nav.Link href="#home">Movie Comparison</Nav.Link>
-                                <Nav.Link href="#link">Profile</Nav.Link>
-                                {/* <NavDropdown title="Search By Genres" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Comedy</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Drama</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Fantasy</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Horror</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Mystery</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Romance</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Thriller</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                </NavDropdown> */}
+                                <Nav.Link id="navWords" href="#home">Movie Comparison</Nav.Link>
+                                <Nav.Link   href="#link">Profile</Nav.Link>
                             </Nav>
-                            <Form inline>
-                                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                            {/* <Form inline>
+                              
+                                <FormControl onChange={(e)=>this.props.searchMovie(e)} type="text" placeholder="Search By Movie Name" className="mr-sm-2" />
                             </Form>
-                            <Button variant="outline-success">Search</Button>
+                            <Button variant="outline-success">Search</Button> */}
 
                         </Navbar.Collapse>
                     </Navbar>

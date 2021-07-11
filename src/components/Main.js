@@ -13,7 +13,8 @@ class Main extends React.Component {
           with_genres={this.props.with_genres}
           primary_release_year={this.props.primary_release_year}
         />
-               <MoviesColumns movies={this.props.movies} 
+               <MoviesColumns 
+               movies={this.props.movies} 
                handleShowcard={this.props.handleShowcard}
                
                
