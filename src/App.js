@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { withAuth0 } from "@auth0/auth0-react";
 import './App.css';
@@ -6,6 +5,7 @@ import Header from './components/Header.js';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
+import NavBar from './components/NavBar';
 
 
 class App extends React.Component {
@@ -18,8 +18,8 @@ class App extends React.Component {
 
 
     }
-    console.log('testttttttttttttttttttttt');
-  };
+    console.log("tessssssssssssssssssst");
+  }
 
 componentDidMount = () => {
     axios.get('http://localhost:5001/movie')
