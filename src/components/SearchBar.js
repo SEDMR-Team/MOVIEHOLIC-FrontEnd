@@ -50,21 +50,21 @@ class SearchBar extends React.Component {
   render() {
     return (
       <>
-        <Container className="bg-dark">
+        <Container className="my-3">
           <Form onSubmit={this.props.handleSubmit}>
-            <Row className="justify-content-center">
-              <Col>
-                <Form.Control name="primary_release_year" placeholder="Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year} />
+            <Row className="d-flex justify-content-center">
+              <Col xs={5} className="pr-0">
+                <Form.Control  required name="primary_release_year" placeholder="Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year} />
               </Col>
-              <Col>
-                <Form.Control name="with_genres" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
+              <Col xs={5} className="pl-0 pr-0">
+                <Form.Control required name="with_genres" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
                   <option >Search By Genres</option>
                   <option value='28' >Action</option>
                   <option value='35'>Comedy</option>
                   <option value='12'>Adventure</option>
                   <option value='16'>Animation</option>
                   <option value='80'>Crime</option>
-                  <option value='99'>Documentary</option>
+              
                   <option value='10749'>Romance</option>
                   <option value='18'>Drama</option>
                   <option value='10751'>Family</option>
@@ -75,8 +75,8 @@ class SearchBar extends React.Component {
                 </Form.Control>
 
               </Col>
-              <Col>
-                <Button variant="primary" type="submit">GO</Button>
+              <Col xs={2} className="pl-0">
+                <Button variant="primary" type="submit">Search</Button>
               </Col>
             </Row>
           </Form>
