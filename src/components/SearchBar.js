@@ -44,7 +44,7 @@
 
 
 import React from 'react';
-import { Form, Col, Row, Button, Container } from 'react-bootstrap'
+import { Form, Col, Row, Button, Container} from 'react-bootstrap'
 
 class SearchBar extends React.Component {
   render() {
@@ -54,7 +54,7 @@ class SearchBar extends React.Component {
           <Form onSubmit={this.props.handleSubmit}>
             <Row className="d-flex justify-content-center">
               <Col xs={5} className="pr-0">
-                <Form.Control  required name="primary_release_year" placeholder="Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year} />
+                <Form.Control required name="primary_release_year" placeholder="Release Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year} />
               </Col>
               <Col xs={5} className="pl-0 pr-0">
                 <Form.Control required name="with_genres" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
@@ -64,7 +64,6 @@ class SearchBar extends React.Component {
                   <option value='12'>Adventure</option>
                   <option value='16'>Animation</option>
                   <option value='80'>Crime</option>
-              
                   <option value='10749'>Romance</option>
                   <option value='18'>Drama</option>
                   <option value='10751'>Family</option>
@@ -75,12 +74,14 @@ class SearchBar extends React.Component {
                 </Form.Control>
 
               </Col>
-              <Col xs={2} className="pl-0">
+              <Col xs={2} id="searchButton" className="pl-0">
                 <Button variant="primary" type="submit">Search</Button>
               </Col>
             </Row>
           </Form>
         </Container>
+
+ 
       </>
     )
   }
