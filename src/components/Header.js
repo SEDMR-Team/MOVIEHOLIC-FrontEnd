@@ -20,7 +20,7 @@ class Header extends React.Component {
             {isAuthenticated ?
               <Nav.Link>
                 <Link to="/profile">Profile</Link>
-                <Link to="/profile">Profile</Link>
+                <Link to="/AboutUs">About Us</Link>
               </Nav.Link>
               : ''
             }
