@@ -6,6 +6,7 @@ import { withAuth0 } from "@auth0/auth0-react";
  class Profile extends Component {
   render() {
       return (
+          <>
           <div>
               {/* {
                   this.props.auth0.isAuthenticated&&
@@ -16,10 +17,11 @@ import { withAuth0 } from "@auth0/auth0-react";
                   <h1>{this.props.auth0.user.email}</h1>
                   <br/>
                   <img src={this.props.auth0.user.picture} alt={this.props.auth0.user.name}/> */}
-                  </>
-              } */}
+                
+              
               <h1>this profile page</h1>
           </div>
+          </>
       )
   }
 }
