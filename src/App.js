@@ -3,12 +3,15 @@ import { withAuth0 } from "@auth0/auth0-react";
 import './App.css';
 import Header from './components/Header.js';
 import Main from './components/Main.js';
+import Home from './components/Home.js';
+import Profile from './components/Profile.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
 // import NavBar from './components/NavBar';
 
 
@@ -16,15 +19,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    movies: [],
-    with_genres: '',
-    primary_release_year: '',
- movie:{}
+      movies: [],
+      with_genres: '',
+      primary_release_year: '',
+      movie: {}
 
     }
   };
 
-  
+
 
   handleOnChange = e => {
     this.setState({
@@ -36,17 +39,17 @@ class App extends React.Component {
 
 
   handleShowcard = async (id) => {
-    const res = await axios.get(`http://localhost:5001/movie/${id}`);
+    let res = await axios.get(`http://localhost:5001/movie/${id}`);
     console.log(res);
-     this.setState({
-    movie:res.data
-     });
-   console.log('ohhhhhh',this.res);
+    this.setState({
+      movie: res.data
+    });
+    console.log('ohhhhhh', this.res);
   }
 
 
 
-componentDidMount = () => {
+  componentDidMount = () => {
     axios.get('http://localhost:5001/movie')
       .then(res => {
         this.setState({
@@ -83,15 +86,31 @@ componentDidMount = () => {
     return (
       <>
         <Header isAuthenticated={isAuthenticated} />
-        <Main  
-        movies={this.state.movies} 
-        handleOnChange={this.handleOnChange}
+        <Main
+          movies={this.state.movies}
+          handleOnChange={this.handleOnChange}
           handleSubmit={this.getMoviesData}
           with_genres={this.state.with_genres}
           primary_release_year={this.state.primary_release_year}
           handleShowcard={this.handleShowcard}
-           movie={this.state.movie}
+          movie={this.state.movie}
         />
+
+
+        <Router>
+          
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+
+            <Route path="/Home">
+              <Profile />
+            </Route>
+          </Switch>
+
+
+        </Router>
 
         <Footer />
       </>

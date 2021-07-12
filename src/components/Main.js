@@ -9,8 +9,8 @@ class Main extends React.Component {
   render() {
     return (
       <>
-       <SearchBar
-          handleOnChange={this.props.handleOnChange} 
+        <SearchBar
+          handleOnChange={this.props.handleOnChange}
           handleSubmit={this.props.handleSubmit}
           with_genres={this.props.with_genres}
           primary_release_year={this.props.primary_release_year}
@@ -39,17 +39,17 @@ class Main extends React.Component {
           movie={this.props.movie}
         /> */}
 
+{/* 
+        <MovieColumns
+          movies={this.props.movies}
+          handleShowcard={this.props.handleShowcard}
 
-               {/* <MovieColumns 
-               movies={this.props.movies} 
-               handleShowcard={this.props.handleShowcard}
-               
-               
-               /> */}
 
-{/* <MovieCarousel
+        />
+
+        <MovieCarousel
           movie={this.props.movie}
-        /> */}
+        />  */}
 
 
       </>

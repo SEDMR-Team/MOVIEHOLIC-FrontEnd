@@ -14,6 +14,7 @@ class MovieInfo extends React.Component {
             <li>{movie.overview}</li>
             <li>{movie.status}</li>
             <li>{movie.vote_average}</li>
+            
           </ul>
         </p>
       </>

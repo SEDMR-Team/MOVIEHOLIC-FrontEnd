@@ -7,7 +7,7 @@ import { withAuth0 } from "@auth0/auth0-react";
   render() {
       return (
           <div>
-              {
+              {/* {
                   this.props.auth0.isAuthenticated&&
                   <>
                   <h1>this the profile page</h1>
@@ -17,8 +17,8 @@ import { withAuth0 } from "@auth0/auth0-react";
                   <br/>
                   <img src={this.props.auth0.user.picture} alt={this.props.auth0.user.name}/> */}
                   </>
-              }
-              
+              } */}
+              <h1>this profile page</h1>
           </div>
       )
   }
