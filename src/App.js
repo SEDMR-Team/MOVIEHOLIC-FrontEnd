@@ -3,15 +3,15 @@ import { withAuth0 } from "@auth0/auth0-react";
 import './App.css';
 import Header from './components/Header.js';
 import Main from './components/Main.js';
-import Home from './components/Home.js';
-import Profile from './components/Profile.js';
+// import Home from './components/Home.js';
+// import Profile from './components/Profile.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
+// import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
 // import NavBar from './components/NavBar';
 
 
@@ -22,8 +22,8 @@ class App extends React.Component {
       movies: [],
       with_genres: '',
       primary_release_year: '',
-      movie: {}
-
+      movie: {},
+      savedMovies: []
     }
   };
 
@@ -80,6 +80,47 @@ class App extends React.Component {
     }
   };
 
+//for save :
+
+handleSave = () => {
+  const body = {};
+  body.email = this.props.auth0.user.email;
+  body.movie = this.state.movie;
+  axios.post(`http://localhost:5001/movie/save`, body)
+    .then(res => console.log('save', res))
+    .catch(error => console.log(error))
+}
+
+
+getFavoriteMovie = () => {
+  axios.get(`http://localhost:5001/movie/profile?email=${this.props.auth0.user.email}`)
+    .then(movieData => {
+      console.log(movieData.data, 'working');
+      this.setState({
+        savedMovies: movieData.data
+      })
+    })
+    .catch(err => console.log(err))
+};
+
+handleDelete = id => {
+  axios.delete(`http://localhost:5001/movie/${id}`,
+    {
+      params: {
+        email: this.props.auth0.user.email,
+      }
+    })
+    .then(res => {
+      this.setState({
+        savedMovies: res.data
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+
+
+
   render() {
     // console.log('movies', this.moviesData)
     const { isAuthenticated } = this.props.auth0;
@@ -87,6 +128,9 @@ class App extends React.Component {
       <>
         <Header isAuthenticated={isAuthenticated} />
         <Main
+         isAuthenticated={isAuthenticated}
+         savedMovies={this.state.savedMovies}
+         getFavoriteMovie={this.getFavoriteMovie}
           movies={this.state.movies}
           handleOnChange={this.handleOnChange}
           handleSubmit={this.getMoviesData}
@@ -94,10 +138,12 @@ class App extends React.Component {
           primary_release_year={this.state.primary_release_year}
           handleShowcard={this.handleShowcard}
           movie={this.state.movie}
+          handleSave={this.handleSave}
+          handleDelete={this.handleDelete}
         />
 
 
-        <Router>
+        {/* <Router>
           
           <Switch>
             <Route exact path="/">
@@ -110,7 +156,7 @@ class App extends React.Component {
           </Switch>
 
 
-        </Router>
+        </Router> */}
 
         <Footer />
       </>

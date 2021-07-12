@@ -3,7 +3,7 @@ import React from 'react';
 class MovieInfo extends React.Component {
   render() {
     const movie = this.props.movie;
-    console.log('This is BusinessInfo', movie);
+    console.log('This is MovieInfo', movie);
     return (
       <>
         <h1>Hello from movieInfo</h1>
