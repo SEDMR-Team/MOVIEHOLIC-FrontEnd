@@ -4,6 +4,7 @@ import {Carousel} from 'react-bootstrap';
 export class SlideShow extends Component {
     render() {
         return (
+            <>
             <div>
                 <Carousel>
                     <Carousel.Item>
@@ -45,6 +46,7 @@ export class SlideShow extends Component {
                     </Carousel.Item>
                 </Carousel>
             </div>
+            </>
         )
     }
 }

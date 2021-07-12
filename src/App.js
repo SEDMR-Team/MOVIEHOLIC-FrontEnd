@@ -3,14 +3,17 @@ import { withAuth0 } from "@auth0/auth0-react";
 import './App.css';
 import Header from './components/Header.js';
 import Main from './components/Main.js';
+import Home from './components/Home.js';
+import Profile from './components/Profile.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-//  import AboutUs from './components/AboutUs';
-import { SlideShow } from './components/SlideShow';
+import {BrowserRouter as Router , Switch, Route} from 'react-router-dom';
+import SlideShow from './components/SlideShow.js'
+// import NavBar from './components/NavBar';
 
 
 class App extends React.Component {
@@ -37,7 +40,7 @@ class App extends React.Component {
 
 
   handleShowcard = async (id) => {
-    const res = await axios.get(`http://localhost:5001/movie/${id}`);
+    let res = await axios.get(`http://localhost:5001/movie/${id}`);
     console.log(res);
     this.setState({
       movie: res.data
@@ -95,6 +98,22 @@ class App extends React.Component {
           handleShowcard={this.handleShowcard}
           movie={this.state.movie}
         />
+
+
+        <Router>
+          
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+
+            <Route path="/Home">
+              <Profile />
+            </Route>
+          </Switch>
+
+
+        </Router>
 
         <Footer />
 
