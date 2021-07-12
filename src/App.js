@@ -6,34 +6,54 @@ import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
-import'bootstrap-css-only/css/bootstrap.min.css';
- import'mdbreact/dist/css/mdb.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 //  import AboutUs from './components/AboutUs';
+import { SlideShow } from './components/SlideShow';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    movies: [],
-    with_genres: '',
-    primary_release_year: '',
-
+      movies: [],
+      with_genres: '',
+      primary_release_year: '',
+      movie: {}
 
     }
-    console.log("tessssssssssssssssssst");
+  };
+
+
+
+  handleOnChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+    console.log('value', e.target.value)
+    console.log('name value', e.target.name)
+  };
+
+
+  handleShowcard = async (id) => {
+    const res = await axios.get(`http://localhost:5001/movie/${id}`);
+    console.log(res);
+    this.setState({
+      movie: res.data
+    });
+    console.log('ohhhhhh', this.res);
   }
 
-componentDidMount = () => {
+
+
+  componentDidMount = () => {
     axios.get('http://localhost:5001/movie')
       .then(res => {
         this.setState({
-         movies:res.data
+          movies: res.data
 
         });
-       
-
       })
       .catch(err => console.log(err));
   };
@@ -41,57 +61,49 @@ componentDidMount = () => {
   getMoviesData = async (e) => {
     e.preventDefault();
     try {
-    const moviesData = await axios.get('http://localhost:5001/search',
-      {params: {
-        primary_release_year: this.primary_release_year,
-        with_genres: this.state.with_genres
-      }});
+      let moviesData = await axios.get('http://localhost:5001/search',
+        {
+          params: {
+            primary_release_year: this.primary_release_year,
+            with_genres: this.state.with_genres
+          }
+        });
       this.setState({
-        movies:moviesData.data,
+        movies: moviesData.data,
         primary_release_year: '',
         with_genres: ''
-      }); 
+      });
     } catch (err) {
-      this.setState({error: `${err.message}`});
+      this.setState({ error: `${err.message}` });
     }
   };
 
   render() {
+    // console.log('movies', this.moviesData)
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
+
         <Header isAuthenticated={isAuthenticated} />
-        <Main  movies={this.state.movies} />
+        <SlideShow />
+        <Main
+          movies={this.state.movies}
+          handleOnChange={this.handleOnChange}
+          handleSubmit={this.getMoviesData}
+          with_genres={this.state.with_genres}
+          primary_release_year={this.state.primary_release_year}
+          handleShowcard={this.handleShowcard}
+          movie={this.state.movie}
+        />
+
         <Footer />
-        
+
       </>
     )
   }
 }
 
 export default withAuth0(App)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // import React, { Component } from 'react'
@@ -114,7 +126,7 @@ export default withAuth0(App)
 
 //         <Router>
 //           {/* <Header /> */}
-         
+
 //           <Switch>
 //             <Route exact path="/">
 //               <Home />
@@ -124,7 +136,7 @@ export default withAuth0(App)
 //             <Profile />
 //             </Route>
 //           </Switch>
-         
+
 //           {/* <Footer /> */}
 
 //         </Router>
