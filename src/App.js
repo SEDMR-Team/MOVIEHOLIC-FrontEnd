@@ -11,7 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+<<<<<<< HEAD
 // import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
+=======
+import {BrowserRouter as Router , Switch, Route} from 'react-router-dom';
+import SlideShow from './components/SlideShow.js'
+>>>>>>> 0750cfc58f789e498deb6a6dcb428d3e9195807c
 // import NavBar from './components/NavBar';
 
 
@@ -126,7 +131,9 @@ handleDelete = id => {
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
+
         <Header isAuthenticated={isAuthenticated} />
+        <SlideShow />
         <Main
          isAuthenticated={isAuthenticated}
          savedMovies={this.state.savedMovies}
@@ -159,6 +166,7 @@ handleDelete = id => {
         </Router> */}
 
         <Footer />
+
       </>
     )
   }

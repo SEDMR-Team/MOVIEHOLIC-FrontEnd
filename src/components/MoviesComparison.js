@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 
-export class Home extends Component {
+export class MoviesComparison extends Component {
     render() {
         return (
             <div>
-              
-               
+                <h1>this comparison page</h1>
             </div>
         )
     }
 }
 
-export default Home
+export default MoviesComparison
