@@ -11,7 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router , Switch, Route} from 'react-router-dom';
+import SlideShow from './components/SlideShow.js'
 // import NavBar from './components/NavBar';
 
 
@@ -85,7 +86,9 @@ class App extends React.Component {
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
+
         <Header isAuthenticated={isAuthenticated} />
+        <SlideShow />
         <Main
           movies={this.state.movies}
           handleOnChange={this.handleOnChange}
@@ -113,6 +116,7 @@ class App extends React.Component {
         </Router>
 
         <Footer />
+
       </>
     )
   }
