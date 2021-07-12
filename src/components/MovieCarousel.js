@@ -1,19 +1,19 @@
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 
-class MoviesCarousel extends React.Component {
+class MovieCarousel extends React.Component {
   render() {
-    const movies= this.props.movies;
+    const movie= this.props.movie;
     return (
       <>
-        {movies.poster_path ?
+        {movie.poster_path ?
           <Container>
             <Carousel>
-              {business.poster_path.map((photo, i) =>
-                <Carousel.Item key={i}>
+             
+                <Carousel.Item >
                   <img
                     className="d-block w-100"
-                    src={photo}
+                    src={movie.poster_path}
                     alt="First slide"
                   />
                   <Carousel.Caption>
@@ -21,7 +21,7 @@ class MoviesCarousel extends React.Component {
                     <p>Place holder</p>
                   </Carousel.Caption>
                 </Carousel.Item>
-              )}
+              )
             </Carousel>
           </Container>
           :
@@ -32,4 +32,4 @@ class MoviesCarousel extends React.Component {
   }
 }
 
-export default MoviesCarousel;
+export default MovieCarousel;
