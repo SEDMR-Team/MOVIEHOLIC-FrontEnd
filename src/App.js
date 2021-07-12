@@ -19,19 +19,12 @@ class App extends React.Component {
     movies: [],
     with_genres: '',
     primary_release_year: '',
-    // movies: {}
+ movie:{}
 
     }
   };
 
-  // searchMovie = e => {
-  //   this.setState({
-  //    [e.target.name]: e.target.value
-
-  //   })
-  //   console.log('movie name ', e.target.name)
-  //   console.log('movie value ', e.target.value)
-  // }
+  
 
   handleOnChange = e => {
     this.setState({
@@ -43,10 +36,12 @@ class App extends React.Component {
 
 
   handleShowcard = async (id) => {
-    const res = await axios.get(`http://localhost:5001/movies/${id}`);
-    this.setState({
-    movies: res.data
-    });
+    const res = await axios.get(`http://localhost:5001/movie/${id}`);
+    console.log(res);
+     this.setState({
+    movie:res.data
+     });
+   console.log('ohhhhhh',this.res);
   }
 
 
@@ -95,6 +90,7 @@ componentDidMount = () => {
           with_genres={this.state.with_genres}
           primary_release_year={this.state.primary_release_year}
           handleShowcard={this.handleShowcard}
+           movie={this.state.movie}
         />
 
         <Footer />

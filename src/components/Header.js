@@ -10,7 +10,7 @@ class Header extends React.Component {
       <>
         <NavBar />       
         {!this.props.isAuthenticated ? '' : <LogoutButton />}
-        <SlideShow/>
+     
       </>
     )
   }
