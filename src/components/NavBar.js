@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar,  Nav , Col} from 'react-bootstrap';
 import LoginButton from './LoginButton';
+import Profile from './Profile';
 
 
 export class NavBar extends Component {
@@ -17,7 +18,7 @@ export class NavBar extends Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
                                 <Nav.Link id="navWords" href="#home">Movie Comparison</Nav.Link>
-                                <Nav.Link   href="#link">Profile</Nav.Link>
+                             <Nav.Link >Profile</Nav.Link>
                             </Nav>
                             {/* <Form inline>
                               

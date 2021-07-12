@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import Movie from './Movie.js';
 import { Container, CardColumns } from 'react-bootstrap';
