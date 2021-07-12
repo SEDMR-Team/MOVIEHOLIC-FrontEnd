@@ -8,7 +8,7 @@ class MovieDetail extends React.Component {
     return (
       <>
         <MovieCarousel movie={this.props.movie} />
-        <Button className="primary">Save</Button>
+        <Button className="primary" onClick={this.props.handleSave}>Save</Button>
         <Button className="primary">Rate</Button>
         <MovieInfo movie={this.props.movie}
         />

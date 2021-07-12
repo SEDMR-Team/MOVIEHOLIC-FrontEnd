@@ -1,30 +1,29 @@
 import React, { Component } from 'react'
-import { withAuth0 } from "@auth0/auth0-react";
-
-
+// import { withAuth0 } from "@auth0/auth0-react";
+import { Container, CardColumns } from 'react-bootstrap';
+import Movie from './Movie.js';
 
  class Profile extends Component {
+    componentDidMount = () => {
+        this.props.getFavoriteMovie();
+      }
   render() {
       return (
-          <>
-          <div>
-              {/* {
-                  this.props.auth0.isAuthenticated&&
-                  <>
-                  <h1>this the profile page</h1>
-                  { <h1>{this.props.auth0.user.name}</h1>
-                  <br/>
-                  <h1>{this.props.auth0.user.email}</h1>
-                  <br/>
-                  <img src={this.props.auth0.user.picture} alt={this.props.auth0.user.name}/>
-                 */}
-              
-              <h1>this profile page</h1>
-          </div>
-          </>
+        <Container>
+        <h1 className="my-3">My Favorite Movies</h1>
+        <CardColumns>
+          {this.props.savedMovies.map((movie, i) =>
+            <Movie
+              key={i}
+              movie={movie}
+              handleShowcard={this.props.handleShowcard}
+              handleDelete={this.props.handleDelete}
+            />)}
+        </CardColumns>
+      </Container>
       )
   }
 }
 
 
-export default withAuth0(Profile);
+export default (Profile);
