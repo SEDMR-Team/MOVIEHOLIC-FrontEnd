@@ -12,7 +12,7 @@ import Movie from './Movie.js';
         <Container>
         <h1 className="my-3">My Favorite Movies</h1>
         <CardColumns>
-          {this.props.savedMovies.map((movie, i) =>
+          {this.props.savedMovies.map((movie,i) =>
             <Movie
               key={i}
               movie={movie}

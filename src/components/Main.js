@@ -29,7 +29,7 @@ class Main extends React.Component {
             <MovieDetail
               movie={this.props.movie}
               handleSave={this.props.handleSave}
-             
+              isAuthenticated={this.props.isAuthenticated}
             />
           </Route>
           {this.props.isAuthenticated ?
@@ -41,7 +41,8 @@ class Main extends React.Component {
             handleDelete={this.props.handleDelete}
             />
           </Route>
-          : ''}
+          : ''
+          }
         </Switch>
         </main>
         )
