@@ -6,6 +6,7 @@ import { Switch, Route ,Alert } from 'react-router-dom';
 import Profile from './Profile.js';
 import MovieDetail from './MovieDetail.js'
 import AboutUs from './AboutUs.js';
+import TopMovies from './TopMovies.js';
 class Main extends React.Component {
   render() {
     return (
@@ -31,6 +32,13 @@ class Main extends React.Component {
 <Route exact path="/AboutUs">
   <AboutUs/>
   </Route> 
+
+
+  <Route exact path="/TopMovies">
+  <TopMovies/>
+  </Route>
+
+
           <Route exact path="/movie/:id">
             <MovieDetail
               movie={this.props.movie}

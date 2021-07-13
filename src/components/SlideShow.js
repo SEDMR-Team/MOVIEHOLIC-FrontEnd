@@ -22,7 +22,7 @@ export class SlideShow extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={"https://news.northeastern.edu/wp-content/uploads/2016/06/theatre_1.gif"}
+                            src={"https://bloximages.newyork1.vip.townnews.com/wandtv.com/content/tncms/assets/v3/editorial/b/55/b55fe86e-a02f-11ea-b37e-b7c0b2855eda/5ece88e337f68.image.gif"}
                             alt="Second slide"
                             style={{width:"200px",hight:"0px"}}
                         />
@@ -35,7 +35,7 @@ export class SlideShow extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={"https://static.videomaker.com/wp-content/uploads/2018/12/34-1cropped.jpg"}
+                            src={"https://en-media.thebetterindia.com/uploads/2017/01/cinema-e1485785799647.jpg"}
                             alt="Third slide"
                             style={{width:"200px",hight:"0px"}}
                             />
