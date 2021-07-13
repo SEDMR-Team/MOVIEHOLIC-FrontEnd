@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { withAuth0 } from "@auth0/auth0-react";
 import { Container, CardColumns } from 'react-bootstrap';
 import Movie from './Movie.js';
 
@@ -9,9 +8,11 @@ import Movie from './Movie.js';
       }
   render() {
       return (
+
+        <>
+          <h1 className="MD">My Favorite Movies</h1>
         <Container>
           <div>
-        <h1 className="py-3">My Favorite Movies</h1>
         <CardColumns>
           {this.props.savedMovies.map((movie,i) =>
             <Movie
@@ -23,6 +24,8 @@ import Movie from './Movie.js';
         </CardColumns>
         </div>
       </Container>
+
+      </>
       )
   }
 }

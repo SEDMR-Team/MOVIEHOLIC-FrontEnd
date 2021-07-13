@@ -1,7 +1,7 @@
-
 import React from 'react';
 import LoginButton from './LoginButton.js';
 import LogoutButton from './LogoutButton';
+
 // import NavBar from './NavBar';
 import { Navbar, Nav } from 'react-bootstrap';
 // import SlideShow from './SlideShow';
@@ -12,49 +12,45 @@ class Header extends React.Component {
     const isAuthenticated = this.props.isAuthenticated;
     return (
       <header>
-       <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">MovieHolic</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link>
-              <Link to="/">Home</Link>
-            </Nav.Link>
-            
-              <Nav.Link id="navLink">
-                <Link to="./AboutUs">About Us</Link>       
-              </Nav.Link>
-        
-            {isAuthenticated ?
-              <Nav.Link id="navLink">
+          <Nav className="mr-auto ml-5" >
+
           
+              <Nav.Link className='mr-5 ml-1  '  >
+                <Link to="/"  >
+                  Home</Link>
+              </Nav.Link>
+           
+
+            <Nav.Link className='mr-5 ml-1'>
+              <Link to="./AboutUs">About Us</Link>
+            </Nav.Link>
+
+            {isAuthenticated ?
+              <Nav.Link className='mr-5 ml-1' >
                 <Link to="/profile">Profile</Link>
-     
               </Nav.Link>
               : ''
             }
-<<<<<<< HEAD
 
-{isAuthenticated ?
-=======
+
+
             {/* {isAuthenticated ?
->>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
               <Nav.Link id="navLink">
                 <Link to="/">Compare Movies</Link>
         
               </Nav.Link>
               : ''
-<<<<<<< HEAD
-            }
-            
+            } */}
+            {/*             
       
               <Nav.Link id="navLink">
          
                 <Link to="/AboutUs">About Us</Link>
               </Nav.Link>
             
-            
-=======
-            } */}
->>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
+             */}
           </Nav>
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Navbar>
