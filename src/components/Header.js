@@ -44,7 +44,7 @@ class Header extends React.Component {
             }
              {isAuthenticated ?
               <Nav.Link id="navLink">
-                <Link to="/">Compare Movies</Link>
+                <Link to="./TopMovies">Search</Link>
         
               </Nav.Link>
               : ''
