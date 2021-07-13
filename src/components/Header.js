@@ -6,6 +6,7 @@ import LogoutButton from './LogoutButton';
 import { Navbar, Nav } from 'react-bootstrap';
 // import SlideShow from './SlideShow';
 import { Link } from 'react-router-dom';
+
 class Header extends React.Component {
   render() {
     const isAuthenticated = this.props.isAuthenticated;
@@ -30,13 +31,30 @@ class Header extends React.Component {
               </Nav.Link>
               : ''
             }
+<<<<<<< HEAD
+
+{isAuthenticated ?
+=======
             {/* {isAuthenticated ?
+>>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
               <Nav.Link id="navLink">
-         
-                <Link to="/Movies Comparison">Movies Comparison</Link>
+                <Link to="/">Compare Movies</Link>
+        
               </Nav.Link>
               : ''
+<<<<<<< HEAD
+            }
+            
+      
+              <Nav.Link id="navLink">
+         
+                <Link to="/AboutUs">About Us</Link>
+              </Nav.Link>
+            
+            
+=======
             } */}
+>>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
           </Nav>
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Navbar>

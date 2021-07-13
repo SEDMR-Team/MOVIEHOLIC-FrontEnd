@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from './Movie.js';
 import { Container, CardColumns } from 'react-bootstrap';
 import { Button ,ButtonToolbar, ButtonGroup  } from 'react-bootstrap'
-
+import SlideShow from './SlideShow.js'
 
 class MovieColumns  extends React.Component {
   render() {
@@ -11,6 +11,7 @@ class MovieColumns  extends React.Component {
        
 
       <Container>
+      <SlideShow />
         <CardColumns>
           {this.props.movies.map((movie, i) => <Movie key={i} movie={movie} handleShowcard={this.props.handleShowcard} />)}
         </CardColumns>

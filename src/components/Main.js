@@ -5,33 +5,30 @@ import SearchBar from './SearchBar';
 import { Switch, Route ,Alert } from 'react-router-dom';
 import Profile from './Profile.js';
 import MovieDetail from './MovieDetail.js'
-
-
+import AboutUs from './AboutUs.js';
 class Main extends React.Component {
   render() {
     return (
       
       <main>
-{/* <Alert variant="filled" severity="success">
-  This is a success alert — check it out!
-</Alert> */}
-
-        <Switch>
-          <Route exact path="/">
-            <SearchBar
-              handleOnChange={this.props.handleOnChange}
-              handleSubmit={this.props.handleSubmit}
-              with_genres={this.props.with_genres}
-              primary_release_year={this.props.primary_release_year}
-            />
-            <MovieColumns
-              movies={this.props.movies}
-              handleShowcard={this.props.handleShowcard}
-
-
-            />
-          </Route>
-
+         <Switch>
+         <Route exact path="/">
+        <SearchBar
+          handleOnChange={this.props.handleOnChange}
+          handleOnChange1={this.props.handleOnChange1}
+          handleSubmit={this.props.handleSubmit}
+          with_genres={this.props.with_genres}
+          primary_release_year={this.props.primary_release_year}
+        />
+        <MovieColumns
+          movies={this.props.movies}
+          handleShowcard={this.props.handleShowcard}
+        />
+       
+</Route>
+<Route exact path="/AboutUs">
+  <AboutUs/>
+  </Route> 
           <Route exact path="/movie/:id">
             <MovieDetail
               movie={this.props.movie}
@@ -57,22 +54,4 @@ class Main extends React.Component {
 
 export default Main;
 
-
-{/* 
-<MovieDetail
-          movie={this.props.movie}
-        />
-
-
-       
-
-        <MovieCarousel
-          movie={this.props.movie}
-        />  */}
-
-
-{/*       
-    )
-  }
-} */}
 

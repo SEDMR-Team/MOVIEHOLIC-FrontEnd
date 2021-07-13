@@ -23,7 +23,8 @@ class App extends React.Component {
     this.state = {
       movies: [],
       with_genres: '',
-      primary_release_year: '',
+    year:0,
+      page:0,
       movie: {},
       savedMovies: [],
       
@@ -44,14 +45,31 @@ class App extends React.Component {
 // =======================================================
 
   handleOnChange = e => {
+   e.preventDefault();
     this.setState({
-      [e.target.name]: e.target.value
+  
+      with_genres:e.target.value
     })
-    console.log('value', e.target.value)
-    console.log('name value', e.target.name)
+    console.log( e.target.value)
+
   };
 // =======================================================
 
+  handleOnChange1 = e => {
+    e.preventDefault();
+     this.setState({
+       year:e.target.value,
+     
+     })
+     console.log( e.target.value)
+ 
+   };
+   
+
+
+
+
+  
 
   handleShowcard = async (id) => {
     let res = await axios.get(`http://localhost:5001/movie/${id}`);
@@ -83,16 +101,15 @@ class App extends React.Component {
       let moviesData = await axios.get('http://localhost:5001/search',
         {
           params: {
-            primary_release_year: this.primary_release_year,
+           year: this.state.year,
             with_genres: this.state.with_genres
             
           }
         });
       this.setState({
         movies: moviesData.data,
-        primary_release_year: '',
-        with_genres: '',
-       
+    //  year:this.state.year,
+    //     with_genres: this.state.with_genres
       });
     } catch (err) {
       this.setState({ error: `${err.message}` });
@@ -166,18 +183,19 @@ class App extends React.Component {
       <>
 
         <Header isAuthenticated={isAuthenticated} />
-
+     
         <Main
           isAuthenticated={isAuthenticated}
           savedMovies={this.state.savedMovies}
           getFavoriteMovie={this.getFavoriteMovie}
           movies={this.state.movies}
           handleOnChange={this.handleOnChange}
+          handleOnChange1={this.handleOnChange1}
           handleSubmit={this.getMoviesData}
           pageHandler={this.pageHandler}
           with_genres={this.state.with_genres}
-          page={this.state.page}
-          primary_release_year={this.state.primary_release_year}
+          year={this.state.year}
+        page={this.state.page}
           handleShowcard={this.handleShowcard}
           movie={this.state.movie}
           handleSave={this.handleSave}

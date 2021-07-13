@@ -12,3 +12,8 @@ code {
     monospace;
 }
 
+
+
+.Card.Img {
+  display: flex;
+}
