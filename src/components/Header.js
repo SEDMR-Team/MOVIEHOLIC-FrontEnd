@@ -1,7 +1,7 @@
-
 import React from 'react';
 import LoginButton from './LoginButton.js';
 import LogoutButton from './LogoutButton';
+
 // import NavBar from './NavBar';
 import './Header.css'
 import { Navbar, Nav } from 'react-bootstrap';
@@ -33,23 +33,38 @@ class Header extends React.Component {
               <Nav.Link id="navLink">
                 <Link to="./AboutUs">About Us</Link>       
               </Nav.Link>
-        
+           
+
+            <Nav.Link className='mr-5 ml-1'>
+              <Link to="./AboutUs">About Us</Link>
+            </Nav.Link>
+
             {isAuthenticated ?
-              <Nav.Link id="navLink">
-          
+              <Nav.Link className='mr-5 ml-1' >
                 <Link to="/profile">Profile</Link>
-     
               </Nav.Link>
               : ''
             }
+<<<<<<< HEAD
+
+
+
+            {/* {isAuthenticated ?
+=======
              {isAuthenticated ?
+>>>>>>> 6458dac9fc6a4cc460c9209dc3ff10a9d57628b5
               <Nav.Link id="navLink">
                 <Link to="/">Compare Movies</Link>
         
               </Nav.Link>
               : ''
+<<<<<<< HEAD
+            } */}
+            {/*             
+=======
             }
             
+>>>>>>> 6458dac9fc6a4cc460c9209dc3ff10a9d57628b5
       
               {/* <Nav.Link id="navLink">
          
@@ -57,6 +72,10 @@ class Header extends React.Component {
               </Nav.Link>
              */}
             
+<<<<<<< HEAD
+             */}
+=======
+>>>>>>> 6458dac9fc6a4cc460c9209dc3ff10a9d57628b5
           </Nav>
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Navbar>
