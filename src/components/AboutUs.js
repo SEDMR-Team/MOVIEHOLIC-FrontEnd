@@ -19,6 +19,7 @@ export class AboutUs extends Component {
 
                 <Container>
 
+                {/* <Container>
                     <Row>
                         <Col>
                             <Card style={{ width: '18rem' }}>
