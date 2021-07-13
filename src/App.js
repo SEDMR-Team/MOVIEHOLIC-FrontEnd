@@ -11,8 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-import {BrowserRouter as Router , Switch, Route} from 'react-router-dom';
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SlideShow from './components/SlideShow.js'
 // import NavBar from './components/NavBar';
 
 
@@ -90,44 +90,43 @@ class App extends React.Component {
     }
   };
 
-//for save :
+  //for save :
 
-handleSave = () => {
-  const body = {};
-  body.email = this.props.auth0.user.email;
-  body.movie = this.state.movie;
-  axios.post(`http://localhost:5001/movie/save`, body)
-    .then(res => console.log('save', res))
-    .catch(error => console.log(error))
-}
+  handleSave = () => {
+    const body = {};
+    body.email = this.props.auth0.user.email;
+    body.movie = this.state.movie;
+    axios.post(`http://localhost:5001/movie/save`, body)
+      .then(res => console.log(res.data))
+      .catch(error => console.log(error))
+  }
 
 
-getFavoriteMovie = () => {
-  axios.get(`http://localhost:5001/movie/profile?email=${this.props.auth0.user.email}`)
-    .then(movieData => {
-      console.log(movieData.data, 'working');
-      this.setState({
-        savedMovies: movieData.data
+  getFavoriteMovie = () => {
+    axios.get(`http://localhost:5001/movie/profile?email=${this.props.auth0.user.email}`)
+      .then(movieData => {
+        console.log(movieData.data, 'working');
+        this.setState({
+          savedMovies: movieData.data
+        })
       })
-    })
-    .catch(err => console.log(err))
-};
+      .catch(err => console.log(err))
+  };
 
-handleDelete = id => {
-  axios.delete(`http://localhost:5001/movie/${id}`,
-    {
-      params: {
-        email: this.props.auth0.user.email,
-      }
-    })
-    .then(res => {
-      this.setState({
-        savedMovies: res.data
-      });
-    })
-    .catch(err => console.log(err));
-};
-
+  handleDelete = id => {
+    axios.delete(`http://localhost:5001/movies/${id}`,
+      {
+        params: {
+          email: this.props.auth0.user.email,
+        }
+      })
+      .then(res => {
+        this.setState({
+          savedMovies : res.data
+        });
+      })
+      .catch(err => console.log(err));
+  }
 
 
 
@@ -140,9 +139,9 @@ handleDelete = id => {
         <Header isAuthenticated={isAuthenticated} />
       
         <Main
-         isAuthenticated={isAuthenticated}
-         savedMovies={this.state.savedMovies}
-         getFavoriteMovie={this.getFavoriteMovie}
+          isAuthenticated={isAuthenticated}
+          savedMovies={this.state.savedMovies}
+          getFavoriteMovie={this.getFavoriteMovie}
           movies={this.state.movies}
           handleOnChange={this.handleOnChange}
           handleSubmit={this.getMoviesData}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom'
 
-
 class Movie extends React.Component {
   handleClick = () => {
     if (this.props.history.location.pathname !== "/profile") {
