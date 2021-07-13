@@ -1,46 +1,4 @@
-// import React, { Component } from 'react'
 
-// export class SearchBar extends Component {
-//     render() {
-//         return (
-//             <div>
-//                  <Form.Group>
-
-// <br />
-// <Col>
-// <Form.Control as="select">
-//     <option>Search By Genres</option>
-//     <option>Action</option>
-//     <option>Comedy</option>
-//     <option>Drama</option>
-//     <option>Fantasy</option>
-//     <option>Horror</option>
-//     <option>Mystery</option>
-//     <option>Romance</option>
-//     <option>Thriller</option>
-// </Form.Control>
-// <br />
-
-// <Form.Group controlId="formGridAddress1">
-//     <Form.Label>Search By Year</Form.Label>
-//     <Form.Control placeholder="2016" />
-// </Form.Group>
-// <br />
-// <Button variant="primary" type="submit">
-//     CLICK TO SEARCH
-// </Button>
-// </Col>
-
-// <br />
-
-// </Form.Group>
-
-//             </div>
-//         )
-//     }
-// }
-
-// export default SearchBar
 
 
 import React from 'react';
@@ -54,7 +12,7 @@ class SearchBar extends React.Component {
           <Form onSubmit={this.props.handleSubmit}>
             <Row className="d-flex justify-content-center">
               <Col xs={5} className="pr-0">
-                <Form.Control required name="primary_release_year" placeholder="Release Year" onChange={e => this.props.handleOnChange(e)} value={this.props.primary_release_year} />
+                <Form.Control required name="year" placeholder="Year" onChange={e => this.props.handleOnChange1(e)} value={this.props.year} />
               </Col>
               <Col xs={5} className="pl-0 pr-0">
                 <Form.Control required name="with_genres" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
@@ -74,9 +32,21 @@ class SearchBar extends React.Component {
                 </Form.Control>
 
               </Col>
+
+              {/* <Col xs={5} >
+                <Form.Control required name="page" placeholder="page" onChange={e => this.props.handleOnChange(e)} value={this.props.page} >
+                <option >Search By pages</option>
+                  <option value='1' >1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='100'>100</option>
+                  </Form.Control>
+              </Col> */}
+
               <Col xs={2} id="searchButton" className="pl-0">
                 <Button variant="primary" type="submit">Search</Button>
               </Col>
+              
             </Row>
           </Form>
         </Container>

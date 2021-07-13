@@ -10,7 +10,8 @@ import Movie from './Movie.js';
   render() {
       return (
         <Container>
-        <h1 className="my-3">My Favorite Movies</h1>
+          <div>
+        <h1 className="py-3">My Favorite Movies</h1>
         <CardColumns>
           {this.props.savedMovies.map((movie,i) =>
             <Movie
@@ -20,6 +21,7 @@ import Movie from './Movie.js';
               handleDelete={this.props.handleDelete}
             />)}
         </CardColumns>
+        </div>
       </Container>
       )
   }

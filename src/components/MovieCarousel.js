@@ -8,6 +8,7 @@ class MovieCarousel extends React.Component {
       <>
         {movie.poster_path ?
           <Container>
+            
             <Carousel>
              
                 <Carousel.Item >
@@ -15,10 +16,12 @@ class MovieCarousel extends React.Component {
                     className="d-block w-100"
                     src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                     alt="First slide"
+                    width={100}
+               height={500}
                   />
                 
                   <Carousel.Caption>
-                    <h3>First slide label</h3>
+                    <h3>${movie.title}</h3>
                     <p>Place holder</p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -29,6 +32,9 @@ class MovieCarousel extends React.Component {
                     src={logo}
                     // src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiuZ558cD7xPAfLEhDrBviwh9QQAUg0TXu9A&usqp=CAU`}
                     alt="First slide"
+                    width={100}
+                  height={500}
+                    
                   />
                 
                   <Carousel.Caption>
@@ -38,7 +44,7 @@ class MovieCarousel extends React.Component {
                 </Carousel.Item>
 
 
-              )
+              
             </Carousel>
           </Container>
           :
