@@ -3,13 +3,14 @@
 
 import React from 'react';
 import { Form, Col, Row, Button, Container} from 'react-bootstrap'
-import SlideShow from './SlideShow'
+import SlideShow from './SlideShow.js';
 class SearchBar extends React.Component {
   render() {
     return (
       <>
-       <SlideShow />
-        <Container className="my-3">
+          <SlideShow/>
+        <Container className="py-3">
+
           <Form onSubmit={this.props.handleSubmit}>
             <Row className="d-flex justify-content-center">
               <Col xs={5} className="pr-0">
@@ -35,12 +36,8 @@ class SearchBar extends React.Component {
               </Col>
 
               {/* <Col xs={5} >
-                <Form.Control required name="page" placeholder="page" onChange={e => this.props.handleOnChange(e)} value={this.props.page} >
-                <option >Search By pages</option>
-                  <option value='1' >1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='100'>100</option>
+                <Form.Control required name="page" placeholder="page" onChange={e =>this.props.handleOnChange2(e)} value={this.props.page} >
+                
                   </Form.Control>
               </Col> */}
 
