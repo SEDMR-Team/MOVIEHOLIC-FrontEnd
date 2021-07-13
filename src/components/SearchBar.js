@@ -3,11 +3,12 @@
 
 import React from 'react';
 import { Form, Col, Row, Button, Container} from 'react-bootstrap'
-
+import SlideShow from './SlideShow'
 class SearchBar extends React.Component {
   render() {
     return (
       <>
+       <SlideShow />
         <Container className="my-3">
           <Form onSubmit={this.props.handleSubmit}>
             <Row className="d-flex justify-content-center">

@@ -2,13 +2,14 @@ import React from 'react';
 import MovieColumns from './MovieColumns.js';
 // import MovieCarousel from './MovieCarousel.js'
 import SearchBar from './SearchBar';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route ,Alert } from 'react-router-dom';
 import Profile from './Profile.js';
 import MovieDetail from './MovieDetail.js'
 import AboutUs from './AboutUs.js';
 class Main extends React.Component {
   render() {
     return (
+      
       <main>
          <Switch>
          <Route exact path="/">
@@ -32,23 +33,22 @@ class Main extends React.Component {
             <MovieDetail
               movie={this.props.movie}
               handleSave={this.props.handleSave}
-              isAuthenticated={this.props.isAuthenticated}
+
             />
           </Route>
           {this.props.isAuthenticated ?
-          <Route exact path="/profile">
-            <Profile
-            
-            savedMovies={this.props.savedMovies}
-            getFavoriteMovie={this.props.getFavoriteMovie}
-            handleDelete={this.props.handleDelete}
-            />
-          </Route>
-          : ''
-          }
+            <Route exact path="/profile">
+              <Profile
+
+                savedMovies={this.props.savedMovies}
+                getFavoriteMovie={this.props.getFavoriteMovie}
+                handleDelete={this.props.handleDelete}
+              />
+            </Route>
+            : ''}
         </Switch>
-        </main>
-        )
+      </main>
+    )
   }
 }
 

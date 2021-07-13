@@ -8,6 +8,8 @@ class MovieColumns  extends React.Component {
   render() {
     return (
       <>
+       
+
       <Container>
       <SlideShow />
         <CardColumns>
@@ -16,14 +18,15 @@ class MovieColumns  extends React.Component {
       </Container>
       
       <ButtonToolbar id="ButtonToolbar" aria-label="Toolbar with button groups">
-      <ButtonGroup className="mr-2" aria-label="First group">
-        <Button >1</Button> <Button>2</Button> <Button>3</Button> <Button>4</Button>
+      {/* <ButtonGroup  onSelect={e => this.props.pageHandler(e)} value={this.props.page} className="mr-2" aria-label="First group">
       </ButtonGroup>
       <ButtonGroup className="mr-2" aria-label="Second group">
-        <Button>5</Button> 
-      </ButtonGroup>
+        <Button>NEXT</Button> 
+      </ButtonGroup> */}
+        <Button value='1' onClick={e => this.props.pageHandler(e)}>1</Button> <Button value='2' onClick={e => this.props.pageHandler(e)} >2</Button> <Button value='3'>3</Button> <Button>4</Button>
     
     </ButtonToolbar>
+    
     </>
 
     )
