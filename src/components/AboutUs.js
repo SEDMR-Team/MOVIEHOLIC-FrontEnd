@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container,Row,Col,Image} from 'react-bootstrap';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 
 export class AboutUs extends Component {
     render() {
@@ -8,7 +8,20 @@ export class AboutUs extends Component {
 
                 <h1>hello this about us page </h1>
 
-                <Container>
+
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                </Card>
+
+                {/* <Container>
                     <Row>
                         <Col xs={6} md={4}>
                             <Image src="holder.js/171x180" rounded />
@@ -20,7 +33,7 @@ export class AboutUs extends Component {
                             <Image src="holder.js/171x180" thumbnail />
                         </Col>
                     </Row>
-                </Container>
+                </Container> */}
             </div>
         )
     }
