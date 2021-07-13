@@ -13,6 +13,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SlideShow from './components/SlideShow.js'
+import Swal from 'sweetalert2'
 // import NavBar from './components/NavBar';
 
 
@@ -25,10 +26,12 @@ class App extends React.Component {
       primary_release_year: '',
       movie: {},
       savedMovies: [],
-      page:''
+      
+
     }
   };
 
+// =======================================================
 
 
   pageHandler = e => {
@@ -38,6 +41,7 @@ class App extends React.Component {
     console.log('value', e.target.value)
     console.log('name value', e.target.page)
   };
+// =======================================================
 
   handleOnChange = e => {
     this.setState({
@@ -46,6 +50,7 @@ class App extends React.Component {
     console.log('value', e.target.value)
     console.log('name value', e.target.name)
   };
+// =======================================================
 
 
   handleShowcard = async (id) => {
@@ -58,6 +63,7 @@ class App extends React.Component {
   }
 
 
+// =======================================================
 
   componentDidMount = () => {
     axios.get('http://localhost:5001/movie')
@@ -69,6 +75,7 @@ class App extends React.Component {
       })
       .catch(err => console.log(err));
   };
+// =======================================================
 
   getMoviesData = async (e) => {
     e.preventDefault();
@@ -78,18 +85,20 @@ class App extends React.Component {
           params: {
             primary_release_year: this.primary_release_year,
             with_genres: this.state.with_genres
+            
           }
         });
       this.setState({
         movies: moviesData.data,
         primary_release_year: '',
-        with_genres: ''
+        with_genres: '',
+       
       });
     } catch (err) {
       this.setState({ error: `${err.message}` });
     }
   };
-
+// =======================================================
   //for save :
 
   handleSave = () => {
@@ -97,10 +106,28 @@ class App extends React.Component {
     body.email = this.props.auth0.user.email;
     body.movie = this.state.movie;
     axios.post(`http://localhost:5001/movie/save`, body)
-      .then(res => console.log(res.data))
-      .catch(error => console.log(error))
+      .then(res => {
+        console.log(res.data)
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Add Successfully '
+        })
+      }
+      ).catch(error => console.log(error))
   }
 
+// =======================================================
 
   getFavoriteMovie = () => {
     axios.get(`http://localhost:5001/movie/profile?email=${this.props.auth0.user.email}`)
@@ -112,6 +139,7 @@ class App extends React.Component {
       })
       .catch(err => console.log(err))
   };
+// =======================================================
 
   handleDelete = id => {
     axios.delete(`http://localhost:5001/movies/${id}`,
@@ -122,12 +150,13 @@ class App extends React.Component {
       })
       .then(res => {
         this.setState({
-          savedMovies : res.data
+          savedMovies: res.data
         });
       })
       .catch(err => console.log(err));
   }
 
+// =======================================================
 
 
   render() {
@@ -137,7 +166,7 @@ class App extends React.Component {
       <>
 
         <Header isAuthenticated={isAuthenticated} />
-      
+
         <Main
           isAuthenticated={isAuthenticated}
           savedMovies={this.state.savedMovies}

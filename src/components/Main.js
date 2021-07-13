@@ -2,7 +2,7 @@ import React from 'react';
 import MovieColumns from './MovieColumns.js';
 // import MovieCarousel from './MovieCarousel.js'
 import SearchBar from './SearchBar';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route ,Alert } from 'react-router-dom';
 import Profile from './Profile.js';
 import MovieDetail from './MovieDetail.js'
 
@@ -12,7 +12,9 @@ class Main extends React.Component {
     return (
       
       <main>
-
+{/* <Alert variant="filled" severity="success">
+  This is a success alert — check it out!
+</Alert> */}
 
         <Switch>
           <Route exact path="/">

@@ -17,14 +17,15 @@ class MovieColumns  extends React.Component {
       </Container>
       
       <ButtonToolbar id="ButtonToolbar" aria-label="Toolbar with button groups">
-      <ButtonGroup  onSelect={e => this.props.pageHandler(e)} value={this.props.page} className="mr-2" aria-label="First group">
-        <Button value='1'>1</Button> <Button value='2' >2</Button> <Button value='3'>3</Button> <Button>4</Button>
+      {/* <ButtonGroup  onSelect={e => this.props.pageHandler(e)} value={this.props.page} className="mr-2" aria-label="First group">
       </ButtonGroup>
       <ButtonGroup className="mr-2" aria-label="Second group">
         <Button>NEXT</Button> 
-      </ButtonGroup>
+      </ButtonGroup> */}
+        <Button value='1' onClick={e => this.props.pageHandler(e)}>1</Button> <Button value='2' onClick={e => this.props.pageHandler(e)} >2</Button> <Button value='3'>3</Button> <Button>4</Button>
     
     </ButtonToolbar>
+    
     </>
 
     )
