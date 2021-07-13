@@ -6,6 +6,8 @@ export class AboutUs extends Component {
         return (
             <div>
 
+                <h1>hello this about us page </h1>
+
                 <Container>
                     <Row>
                         <Col xs={6} md={4}>
