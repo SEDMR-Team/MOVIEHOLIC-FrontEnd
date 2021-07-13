@@ -3,18 +3,29 @@ import React from 'react';
 import LoginButton from './LoginButton.js';
 import LogoutButton from './LogoutButton';
 // import NavBar from './NavBar';
+import './Header.css'
 import { Navbar, Nav } from 'react-bootstrap';
 // import SlideShow from './SlideShow';
 import { Link } from 'react-router-dom';
-
+import logoo from './hhh.gif'
+import logoo1 from './1.png'
+// var Img = <img src={logoo}/>
 class Header extends React.Component {
   render() {
     const isAuthenticated = this.props.isAuthenticated;
     return (
       <header>
-       <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">MovieHolic</Navbar.Brand>
-          <Nav className="mr-auto">
+       <Navbar id='bac' variant="dark"  >
+          <Navbar.Brand href="#home" id='font'   >
+
+          
+          <img src={logoo} style={{width:120,height:100, marginTop: -7}} />
+          <img src={logoo1} style={{width:140,height:150, marginTop: -7}} />
+          
+         
+
+          </Navbar.Brand>
+          <Nav className="mr-auto" id='nav'>
             <Nav.Link>
               <Link to="/">Home</Link>
             </Nav.Link>
@@ -31,30 +42,21 @@ class Header extends React.Component {
               </Nav.Link>
               : ''
             }
-<<<<<<< HEAD
-
-{isAuthenticated ?
-=======
-            {/* {isAuthenticated ?
->>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
+             {isAuthenticated ?
               <Nav.Link id="navLink">
                 <Link to="/">Compare Movies</Link>
         
               </Nav.Link>
               : ''
-<<<<<<< HEAD
             }
             
       
-              <Nav.Link id="navLink">
+              {/* <Nav.Link id="navLink">
          
                 <Link to="/AboutUs">About Us</Link>
               </Nav.Link>
+             */}
             
-            
-=======
-            } */}
->>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
           </Nav>
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Navbar>

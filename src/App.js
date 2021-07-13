@@ -24,10 +24,10 @@ class App extends React.Component {
       movies: [],
       with_genres: '',
     year:0,
-      page:0,
+      page:'',
       movie: {},
       savedMovies: [],
-      
+  
 
     }
   };
@@ -66,7 +66,16 @@ class App extends React.Component {
    };
    
 
-
+   handleOnChange2 = e => {
+    e.preventDefault();
+     this.setState({
+      page:e.target.page,
+     
+     })
+     console.log(e.target.value)
+ 
+   };
+   
 
 
   
@@ -94,27 +103,80 @@ class App extends React.Component {
       .catch(err => console.log(err));
   };
 // =======================================================
+getPagesData=async(page)=>{
+  try {
+    let moviesData = await axios.get('http://localhost:5001/search',
+      {
+        params: {
+         year: this.state.year,
+          with_genres: this.state.with_genres
+          
+        }
+      });
+    this.setState({
+      movies: moviesData.data,
+  //  year:this.state.year,
+  //     with_genres: this.state.with_genres
+    });
+  } catch (err) {
+    this.setState({ error: `${err.message}` });
+  }
+}
 
-  getMoviesData = async (e) => {
+updatePage=(page)=>{
+  this.setState(
+    {
+      page:page
+    }
+
+  )
+
+}
+
+  getMoviesData = async(e) => {
     e.preventDefault();
     try {
       let moviesData = await axios.get('http://localhost:5001/search',
         {
           params: {
            year: this.state.year,
-            with_genres: this.state.with_genres
+            with_genres: this.state.with_genres,
+            page:this.state.page
+
             
           }
         });
       this.setState({
         movies: moviesData.data,
-    //  year:this.state.year,
-    //     with_genres: this.state.with_genres
+      year:this.state.year,
+         with_genres: this.state.with_genres,
+         page:this.state.page
       });
     } catch (err) {
       this.setState({ error: `${err.message}` });
     }
   };
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // =======================================================
   //for save :
 
@@ -191,7 +253,10 @@ class App extends React.Component {
           movies={this.state.movies}
           handleOnChange={this.handleOnChange}
           handleOnChange1={this.handleOnChange1}
+          handleOnChange2={this.handleOnChange2}
           handleSubmit={this.getMoviesData}
+          handleSubmit1={this. getTopRated}
+         
           pageHandler={this.pageHandler}
           with_genres={this.state.with_genres}
           year={this.state.year}
@@ -200,24 +265,12 @@ class App extends React.Component {
           movie={this.state.movie}
           handleSave={this.handleSave}
           handleDelete={this.handleDelete}
+          // updatePage={this.updatePage}
+      
         />
 
 
-        {/* <Router>
-          
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route path="/Home">
-              <Profile />
-            </Route>
-          </Switch>
-
-
-        </Router> */}
-
+       
         <Footer />
 
       </>
@@ -228,43 +281,3 @@ class App extends React.Component {
 export default withAuth0(App)
 
 
-// import React, { Component } from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// // import axios from 'axios';
-// import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
-// // import { withAuth0 } from "@auth0/auth0-react";
-// import Header from './components/Header.js';
-// import Home from './components/Home';
-// import Footer from './components/Footer';
-// import Profile from './components/Profile';
-// import './App.css'; 
-
-
-
-// export class App extends Component {
-//   render() {
-//     return (
-//       <div>
-
-//         <Router>
-//           {/* <Header /> */}
-
-//           <Switch>
-//             <Route exact path="/">
-//               <Home />
-//             </Route>
-
-//             <Route path="/profile">
-//             <Profile />
-//             </Route>
-//           </Switch>
-
-//           {/* <Footer /> */}
-
-//         </Router>
-//       </div>
-//     )
-//   }
-// }
-
-// export default App

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Card , Button} from 'react-bootstrap';
 
 export class AboutUs extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-<h1>teeeeeeeeeeeeeeeesting duniaaaaaaaaaaaaaaaaaaaa</h1>
-                <Container>
-=======
 
                 <h1>hello this about us page </h1>
 
@@ -26,7 +22,6 @@ export class AboutUs extends Component {
                 </Card>
 
                 {/* <Container>
->>>>>>> 07fdb8969b43dba5dbff5283f44e928363650cd6
                     <Row>
                         <Col xs={6} md={4}>
                             <Image src="holder.js/171x180" rounded />
