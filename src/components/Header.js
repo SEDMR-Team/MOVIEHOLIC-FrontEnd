@@ -17,21 +17,26 @@ class Header extends React.Component {
             <Nav.Link>
               <Link to="/">Home</Link>
             </Nav.Link>
+            
+              <Nav.Link id="navLink">
+                <Link to="./AboutUs">About Us</Link>       
+              </Nav.Link>
+        
             {isAuthenticated ?
               <Nav.Link id="navLink">
+          
                 <Link to="/profile">Profile</Link>
-        
+     
               </Nav.Link>
               : ''
             }
-            
-            {isAuthenticated ?
+            {/* {isAuthenticated ?
               <Nav.Link id="navLink">
          
                 <Link to="/Movies Comparison">Movies Comparison</Link>
               </Nav.Link>
               : ''
-            }
+            } */}
           </Nav>
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Navbar>

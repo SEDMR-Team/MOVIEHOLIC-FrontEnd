@@ -5,14 +5,14 @@ export class SlideShow extends Component {
     render() {
         return (
             <>
-            <div>
+            <div id="slideShow">
                 <Carousel>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
                             src={'https://a-static.besthdwallpaper.com/batman-2021-movie-poster-wallpaper-2560x1600-54803_7.jpg'}
                             alt="First slide"
-                            style={{width:"1200px",higth:"0px"}}
+                            style={{width:"200px",hight:"0px"}}
                         />
                         <Carousel.Caption>
                             {/* <h3>BATMAN</h3> 
@@ -24,7 +24,7 @@ export class SlideShow extends Component {
                             className="d-block w-100"
                             src={"https://wallpaperaccess.com/full/3968126.jpg"}
                             alt="Second slide"
-                            style={{width:"500px",higth:"0px"}}
+                            style={{width:"200px",hight:"0px"}}
                         />
 
                         <Carousel.Caption>
@@ -37,7 +37,7 @@ export class SlideShow extends Component {
                             className="d-block w-100"
                             src={"https://wallpapercave.com/wp/wp8163817.jpg"}
                             alt="Third slide"
-                            style={{width:"500px",higth:"0px"}}
+                            style={{width:"200px",hight:"0px"}}
                             />
                         <Carousel.Caption>
                             {/* <h3>Third slide label</h3>

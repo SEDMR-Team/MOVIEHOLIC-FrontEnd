@@ -25,11 +25,19 @@ class App extends React.Component {
       primary_release_year: '',
       movie: {},
       savedMovies: [],
-    
+      page:''
     }
   };
 
 
+
+  pageHandler = e => {
+    this.setState({
+      [e.target.page]: e.target.value
+    })
+    console.log('value', e.target.value)
+    console.log('name value', e.target.page)
+  };
 
   handleOnChange = e => {
     this.setState({
@@ -129,7 +137,7 @@ class App extends React.Component {
       <>
 
         <Header isAuthenticated={isAuthenticated} />
-        <SlideShow />
+      
         <Main
           isAuthenticated={isAuthenticated}
           savedMovies={this.state.savedMovies}
@@ -137,7 +145,9 @@ class App extends React.Component {
           movies={this.state.movies}
           handleOnChange={this.handleOnChange}
           handleSubmit={this.getMoviesData}
+          pageHandler={this.pageHandler}
           with_genres={this.state.with_genres}
+          page={this.state.page}
           primary_release_year={this.state.primary_release_year}
           handleShowcard={this.handleShowcard}
           movie={this.state.movie}
