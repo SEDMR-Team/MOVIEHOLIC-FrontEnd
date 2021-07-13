@@ -6,7 +6,7 @@ import './LoginButton.css'
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
   return (
-    <Button variant="primary" onClick={() => loginWithRedirect()}>
+    <Button variant="outline-light" onClick={() => loginWithRedirect()}>
       Log In
     </Button>
   )
