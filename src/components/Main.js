@@ -32,7 +32,7 @@ class Main extends React.Component {
 <Route exact path="/AboutUs">
   <AboutUs/>
   </Route> 
-
+  
 
   <Route exact path="/TopMovies">
   <TopMovies/>

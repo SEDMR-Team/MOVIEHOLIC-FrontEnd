@@ -25,8 +25,8 @@ class Header extends React.Component {
         <Navbar.Brand href="#home" id='font'   >
 
 
-          <img src={logoo} style={{ width: 120, height: 100, marginTop: -7 }} />
-          <img src={logoo1} style={{ width: 140, height: 150, marginTop: -7 }} />
+          {/* <img src={logoo} style={{ width: 120, height: 100, marginTop: -7 }} /> */}
+          <img src={logoo1} style={{ width: 140, height: 150, marginTop: 8 }} id='img' />
 
 
 
@@ -35,20 +35,27 @@ class Header extends React.Component {
         <Nav className="mr-auto" id='nav'>
 
 
-          <Nav.Link className='mr-5 ml-1'>
-            <Link to="/">Home</Link>
+          <Nav.Link className='mr-5 ml-1' >
+            <Link to="/" id ='col'>Home</Link>
           </Nav.Link>
 
 
 
 
           <Nav.Link className='mr-5 ml-1' >
-            <Link to="./AboutUs">About Us</Link>
+            <Link to="./AboutUs" id ='col's>About Us</Link>
           </Nav.Link>
+
+
+          <Nav.Link className='mr-5 ml-1' >
+            <Link to="./TopMovies" id ='col's>Find Movies</Link>
+          </Nav.Link>
+
+
 
           {isAuthenticated ?
             <Nav.Link className='mr-5 ml-1' >
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile" id ='col'>Profile</Link>
             </Nav.Link>
             : ''
           }
@@ -59,7 +66,7 @@ class Header extends React.Component {
 
       </Navbar>
 
-
+     
 
     )
   }

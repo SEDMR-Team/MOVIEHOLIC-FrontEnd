@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Errormsg from './Errormsg';
+// import Errormsg from './Errormsg';
 import SearchingForm from  './SearchingForm'
 import Data from  './Data'
 
@@ -28,15 +28,15 @@ import Data from  './Data'
     event.preventDefault();
     
     try{
-       
-        let query =req.query.query
-      const url=`https://api.themoviedb.org/3/search/movie?api_key=b7e66d37aebc415226444c14cfe515e4&query=${query}&limit=8`;
+       console.log(this.state.query);
+        // let query =req.query.query
+      const url=`https://api.themoviedb.org/3/search/movie?api_key=b7e66d37aebc415226444c14cfe515e4&query=${this.state.query}&limit=8`;
       const req=await axios.get(url);
      
 
       
       this.setState({
-        topData:req.body.results,
+        topData:req.data.results,
        disalay:true,
        alert:false,
    
@@ -65,8 +65,8 @@ import Data from  './Data'
   render() {
     return (
 <div>
-    <Errormsg  alert={this.state.alert} error=
-    {this.state.error}/>
+    {/* <Errormsg  alert={this.state.alert} error=
+    {this.state.error}/> */}
       
 < SearchingForm getData={this.getData } updatePage={this.updatePage}
     />
@@ -76,9 +76,9 @@ import Data from  './Data'
       <Data 
     
     //   movie_img={this.setState.topData.poster_path}
-      original_title ={this.state.topData.original_title} 
-      overview={this.state.topData.overview} 
-      vote_average= {this.state.topData.vote_average}/>
+   topData={this.state.topData} 
+   
+      />
 
 
        

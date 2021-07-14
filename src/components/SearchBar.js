@@ -4,6 +4,8 @@
 import React from 'react';
 import { Form, Col, Row, Button, Container} from 'react-bootstrap'
 import SlideShow from './SlideShow.js';
+import './SearchBar.css';
+// import FloatingLabel from "react-bootstrap-floating-label";
 class SearchBar extends React.Component {
   render() {
     return (
@@ -14,10 +16,13 @@ class SearchBar extends React.Component {
           <Form onSubmit={this.props.handleSubmit}>
             <Row className="d-flex justify-content-center">
               <Col xs={5} className="pr-0">
-                <Form.Control required name="year" placeholder="Year" onChange={e => this.props.handleOnChange1(e)} value={this.props.year} />
+             
+                <Form.Control required name="year" placeholder="release_date" onChange={e => this.props.handleOnChange1(e)} value={this.props.year} />
+            
               </Col>
               <Col xs={5} className="pl-0 pr-0">
-                <Form.Control required name="with_genres" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
+              
+                <Form.Control required name="with_genres" placeholder="Genre" as="select" onChange={e => this.props.handleOnChange(e)} value={this.props.with_genres}>
                   <option >Search By Genres</option>
                   <option value='28' >Action</option>
                   <option value='35'>Comedy</option>
@@ -31,8 +36,9 @@ class SearchBar extends React.Component {
                   <option value='36'>History</option>
                   <option value='27'>Horror</option>
                   <option value='10402'>Music</option>
+                
                 </Form.Control>
-
+               
               </Col>
 
               {/* <Col xs={5} >
@@ -41,8 +47,8 @@ class SearchBar extends React.Component {
                   </Form.Control>
               </Col> */}
 
-              <Col xs={2} id="searchButton" className="pl-0">
-                <Button variant="primary" type="submit">Search</Button>
+              <Col xs={2} id="searchButton" className="pl-0 pr-0">
+                <Button variant="dark" type="submit"  >Search</Button>
               </Col>
               
             </Row>
