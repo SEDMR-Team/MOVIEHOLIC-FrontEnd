@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Carousel} from 'react-bootstrap';
 import logo from './movieee.jpg'
+// import logo2 from './78913.HR.jpg'
+import './SlideShow.css';
 export class SlideShow extends Component {
     render() {
         return (
@@ -15,10 +17,28 @@ export class SlideShow extends Component {
                             style={{width:"200px",hight:"0px"}}
                         />
                         <Carousel.Caption>
-                            {/* <h3>BATMAN</h3> 
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>  */}
+                        <h1 id='ss'>WELCOM!</h1> 
+                            <h1 id='ss'>Can't decide what you want to watch?</h1> 
                         </Carousel.Caption>
                     </Carousel.Item>
+                    
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={"http://meqasa.com/blog/wp-content/uploads/2017/01/movies-theater.gif"}
+                            // src={logo2}
+                            alt="Third slide"
+                            style={{width:"200px",hight:"0px"}}
+                            />
+                         
+                        <Carousel.Caption>
+                          
+                            <h2 id='ss'>We know that in todays world it can be hard to choose what to spend your time watching. With all of the different platforms and channels vying for your attention it can get confusing. Here at MovieHolic we've introduced  app with a few helpful functions to make sure you can spend 
+                                less time deciding and more time watching.</h2>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
@@ -32,18 +52,16 @@ export class SlideShow extends Component {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={"https://en-media.thebetterindia.com/uploads/2017/01/cinema-e1485785799647.jpg"}
-                            alt="Third slide"
-                            style={{width:"200px",hight:"0px"}}
-                            />
-                        <Carousel.Caption>
-                            {/* <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
-                        </Carousel.Caption>
-                    </Carousel.Item>
+
+
+
+
+
+
+
+
+
+
                 </Carousel>
             </div>
             </>

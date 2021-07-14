@@ -3,7 +3,7 @@ import { Button , Container } from 'react-bootstrap';
 import MovieCarousel from './MovieCarousel.js';
 import MovieInfo from './MovieInfo';
 
-
+import './MovieDetail.css'
 
 class MovieDetail extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class MovieDetail extends React.Component {
         <MovieCarousel movie={this.props.movie} />
 
        
-      <Button className="primary" onClick={this.props.handleSave}>Add To Favorite List</Button>
+      <Button id='bi'   variant='dark' onClick={this.props.handleSave}>Add To My Profile</Button>
         <MovieInfo movie={this.props.movie}
         />
 

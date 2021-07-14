@@ -19,3 +19,5 @@ As a user, I want to be able to change the rating on saved movies.
 
 
 Wireframes :
+https://en-media.thebetterindia.com/uploads/2017/01/cinema-e1485785799647.jpg
+Did you forget the name of the movie? You remember one word or one syllable from the name of the movie, write it here and we will help you find your movie!
