@@ -23,7 +23,7 @@ class Movie extends React.Component {
             <Card.Text>{`Rating ⭐ : ${movie.vote_average}`}</Card.Text>
             <Card.Text>{`Year: ${movie.release_date}`}</Card.Text>
             {(this.props.history.location.pathname === "/profile") ?
-              <Button variant="danger" onClick={() => this.props.handleDelete(movie.id)}>Delete</Button>
+              <Button variant="danger" id="55" onClick={() => this.props.handleDelete(movie.id)}>Delete</Button>
               : ''
             }
           </Card.Body>

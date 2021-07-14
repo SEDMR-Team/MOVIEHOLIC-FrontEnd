@@ -67,5 +67,12 @@ text-align: center;
   #boo{
       margin-left: 620px;
       margin-top: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+     
+  }
+  #bob1{
+      float: right;
+      margin-top: -140px;
   }

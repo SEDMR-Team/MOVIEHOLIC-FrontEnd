@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css'
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logoo from './hhh.gif'
+
 import logoo1 from './1.png'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
@@ -18,7 +18,6 @@ class Header extends React.Component {
 
 
     return (
-
 
 
       <Navbar id='bac' variant="dark"  >
@@ -66,7 +65,6 @@ class Header extends React.Component {
 
       </Navbar>
 
-     
 
     )
   }

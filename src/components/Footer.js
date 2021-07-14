@@ -1,11 +1,14 @@
 
 import React from "react";
+import logoo from './hhh.gif'
+import './Footer.css'
+
 
 const Footer = () => {
   return (
   
 
-    <footer className="footer">
+    <footer className="footer" id='border'>
       <div className="footer-left col-md-4 col-sm-6">
         <p className="about">
           <span> About Our Website</span> MOVIEHOLIC it's website that help you to find the best movies , compare      between movies, you can rate and save your favorite movies ,
@@ -44,6 +47,7 @@ const Footer = () => {
           <a href="/profile"> Profile</a>
         </p>
         <p className="name"> &copy; Copyright 2021 : MOVIES HOLIC </p>
+        {/* <img src={logoo} height="200" width="250" id='corn' /> */}
       </div>
     </footer>
   );
