@@ -81,7 +81,7 @@ class App extends React.Component {
   
 
   handleShowcard = async (id) => {
-    let res = await axios.get(`http://localhost:5001/movie/${id}`);
+    let res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movie/${id}`);
     console.log(res);
     this.setState({
       movie: res.data
@@ -93,7 +93,7 @@ class App extends React.Component {
 // =======================================================
 
   componentDidMount = () => {
-    axios.get('http://localhost:5001/movie')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/movie/`)
       .then(res => {
         this.setState({
           movies: res.data
@@ -105,7 +105,7 @@ class App extends React.Component {
 // =======================================================
 getPagesData=async(page)=>{
   try {
-    let moviesData = await axios.get('http://localhost:5001/search',
+    let moviesData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/search`,
       {
         params: {
          year: this.state.year,
@@ -136,7 +136,7 @@ updatePage=(page)=>{
   getMoviesData = async(e) => {
     e.preventDefault();
     try {
-      let moviesData = await axios.get('http://localhost:5001/search',
+      let moviesData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/search`,
         {
           params: {
            year: this.state.year,
@@ -184,7 +184,7 @@ updatePage=(page)=>{
     const body = {};
     body.email = this.props.auth0.user.email;
     body.movie = this.state.movie;
-    axios.post(`http://localhost:5001/movie/save`, body)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/movie/save`, body)
       .then(res => {
         console.log(res.data)
         const Toast = Swal.mixin({
@@ -209,7 +209,7 @@ updatePage=(page)=>{
 // =======================================================
 
   getFavoriteMovie = () => {
-    axios.get(`http://localhost:5001/movie/profile?email=${this.props.auth0.user.email}`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/movie/profile?email=${this.props.auth0.user.email}`)
       .then(movieData => {
         console.log(movieData.data, 'working');
         this.setState({
@@ -221,7 +221,7 @@ updatePage=(page)=>{
 // =======================================================
 
   handleDelete = id => {
-    axios.delete(`http://localhost:5001/movies/${id}`,
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/movies/${id}`,
       {
         params: {
           email: this.props.auth0.user.email,
