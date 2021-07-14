@@ -10,10 +10,13 @@ export class SearchingForm extends Component {
 <>
             
             <div id='form'>
+                <>
             <h1 id='ff'>
             Did you forget the name of the movie?<br/> You remember one word or one syllable 
             from the name of it!<br/> write it here and we will help you find your movie! 
             </h1>
+            <img id='bob1' src="https://cdn.dribbble.com/users/1018020/screenshots/4517235/braintheater.gif" height="330" width="250"/>
+            </>
        <Form onSubmit={this.props.getData} id='fo'>
             <Form.Group id='group'>
               <Form.Label id ='la'> keyword : </Form.Label>

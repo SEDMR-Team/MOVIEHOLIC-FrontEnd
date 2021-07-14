@@ -27,7 +27,7 @@ this.props.handleSubmit(e.target.value)
       <ButtonGroup className="mr-2" aria-label="Second group">
         <Button>NEXT</Button> 
       </ButtonGroup> */}
-        <Button value='1' onClick={e =>this.props.updatePage(e.target.value)}>1</Button> <Button value='2' onClick={e =>this.props.updatePage(e.target.value)} >2</Button> <Button value='3'>3</Button> <Button>4</Button>
+        <Button variant="danger" >1</Button> <Button value='2' variant="danger"  >2</Button> <Button value='3' variant="danger" >3</Button> <Button variant="danger" >Next►►</Button>
     
     </ButtonToolbar>
     
